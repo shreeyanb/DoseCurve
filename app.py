@@ -14,7 +14,6 @@ CORS(app)
 
 MODEL_PATH = os.path.join(
     os.path.dirname(__file__),
-    "..",
     "dosecurve_model.pkl"
 )
 
