@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import joblib
 import numpy as np
@@ -205,7 +205,14 @@ def optimize_dose(dose_initial, tau_initial, vd, ke):
 # API ROUTE
 # -------------------------------------------------
 
-@app.route("/predict", methods=["POST"])
+@app.route("/")
+def home():
+    return send_from_directory(os.path.dirname(__file__), "index.html")
+
+
+@app.route("/<path:filename>")
+def serve_static(filename):
+    return send_from_directory(os.path.dirname(__file__), filename)
 def predict():
 
     try:
