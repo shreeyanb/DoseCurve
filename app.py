@@ -213,6 +213,7 @@ def home():
 @app.route("/<path:filename>")
 def serve_static(filename):
     return send_from_directory(os.path.dirname(__file__), filename)
+    @app.route("/predict", methods=["POST"])
 def predict():
 
     try:
