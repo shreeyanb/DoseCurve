@@ -209,13 +209,13 @@ def optimize_dose(dose_initial, tau_initial, vd, ke):
 def home():
     return send_from_directory(os.path.dirname(__file__), "index.html")
 
-
 @app.route("/<path:filename>")
 def serve_static(filename):
     return send_from_directory(os.path.dirname(__file__), filename)
-    @app.route("/predict", methods=["POST"])
-def predict():
 
+
+@app.route("/predict", methods=["POST"])
+def predict():
     try:
 
         data = request.get_json()
