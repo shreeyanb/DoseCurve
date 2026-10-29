@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DoseCurve | AI + Calculus</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">DoseCurve</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#analysis">Analysis</a>
+            <a href="#results">Results</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="tagline">AI + CALCULUS PROJECT</p>
+
+            <h1>
+                AI-Assisted Drug
+                <span>Concentration</span>
+                & Dosage Optimization
+            </h1>
+
+            <p class="hero-text">
+                DoseCurve combines Machine Learning and Calculus to
+                predict drug elimination characteristics and optimize
+                a simulated dosing strategy.
+            </p>
+
+            <a href="#analysis" class="hero-button">
+                Start Analysis
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Patient Input Section -->
+    <section id="analysis" class="section">
+
+        <div class="section-heading">
+            <p class="section-label">PATIENT INPUT</p>
+
+            <h2>Enter Patient Information</h2>
+
+            <p>
+                Enter the required parameters for the simulated analysis.
+            </p>
+        </div>
+
+
+        <div class="input-card">
+
+            <div class="input-grid">
+
+                <div class="input-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" placeholder="e.g. 45">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="e.g. 70">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g. 170">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="sex">Sex</label>
+
+                    <select id="sex">
+                        <option value="">Select</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="bmi">BMI</label>
+                    <input type="number" id="bmi" step="0.1" placeholder="e.g. 24.5">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="scr">Serum Creatinine</label>
+                    <input type="number" id="scr" step="0.01" placeholder="e.g. 1.2">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="crcl">Creatinine Clearance</label>
+                    <input type="number" id="crcl" step="0.1" placeholder="e.g. 82">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="smoking">Smoking</label>
+
+                    <select id="smoking">
+                        <option value="">Select</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="genotype">Genotype</label>
+
+                    <select id="genotype">
+                        <option value="">Select</option>
+                        <option value="EM">EM</option>
+                        <option value="IM">IM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="albumin">Albumin</label>
+                    <input type="number" id="albumin" step="0.01" placeholder="e.g. 4.0">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="alt">ALT</label>
+                    <input type="number" id="alt" step="0.1" placeholder="e.g. 25">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="ast">AST</label>
+                    <input type="number" id="ast" step="0.1" placeholder="e.g. 24">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="vd">Volume of Distribution (Vd)</label>
+                    <input type="number" id="vd" step="0.1" placeholder="e.g. 31">
+                </div>
+
+            </div>
+
+
+            <button id="predictButton" class="primary-button">
+                Predict & Optimize
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Results Section -->
+    <section id="results" class="section results-section">
+
+        <div class="section-heading">
+            <p class="section-label">MODEL OUTPUT</p>
+
+            <h2>Analysis Results</h2>
+
+            <p>
+                Results generated from the ML prediction and calculus
+                optimization pipeline.
+            </p>
+        </div>
+
+
+        <div class="result-grid">
+
+            <div class="result-card">
+                <p>Predicted ke</p>
+                <h3 id="ke-result">--</h3>
+                <span>Elimination rate constant</span>
+            </div>
+
+
+            <div class="result-card">
+                <p>AUC</p>
+                <h3 id="auc-result">--</h3>
+                <span>Total simulated exposure</span>
+            </div>
+
+
+            <div class="result-card">
+                <p>Optimized Dose</p>
+                <h3 id="dose-result">--</h3>
+                <span>Simulated optimization</span>
+            </div>
+
+
+            <div class="result-card">
+                <p>Optimized Interval</p>
+                <h3 id="interval-result">--</h3>
+                <span>Simulated dosing interval</span>
+            </div>
+
+        </div>
+
+
+        <!-- Graph Area -->
+        <div class="chart-grid">
+
+            <div class="chart-card">
+                <h3>Drug Concentration vs Time</h3>
+
+                <div class="chart-placeholder">
+<canvas id="concentrationChart"></canvas>                </div>
+            </div>
+
+
+            <div class="chart-card">
+                <h3>Gradient Descent Convergence</h3>
+
+                <div class="chart-placeholder">
+<canvas id="convergenceChart"></canvas>                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Optimization Summary -->
+        <div class="summary-card">
+
+            <h3>Optimization Summary</h3>
+
+            <div id="optimization-summary">
+
+                Enter patient information and click
+                <strong>Predict & Optimize</strong>
+                to generate the results.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Disclaimer -->
+    <footer>
+
+        <p>
+            <strong>Educational Simulation Only.</strong>
+            DoseCurve is a student project and is not intended for
+            clinical dosing, diagnosis, treatment, or medical decision-making.
+        </p>
+
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
